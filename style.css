@@ -1,0 +1,73 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.35) 0, rgba(255, 255, 255, 0) 120px),
+    radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.25) 0, rgba(255, 255, 255, 0) 180px),
+    radial-gradient(rgba(255, 255, 255, 0.18) 2px, transparent 2px) 0 0 / 28px 28px,
+    linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f9a8d4 100%);
+  background-attachment: fixed;
+  font-family: "Malgun Gothic", system-ui, sans-serif;
+  color: #1e293b;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  align-self: flex-start;
+}
+
+h1 { margin: 0 0 20px; font-size: 24px; }
+
+.todo-form { display: flex; gap: 8px; }
+
+.todo-form input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+}
+.todo-form input:focus { border-color: #6366f1; }
+
+.todo-form button {
+  padding: 0 20px;
+  font-size: 16px;
+  color: #fff;
+  background: #6366f1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.todo-form button:hover { background: #4f46e5; }
+
+.status { margin: 16px 0 8px; font-size: 14px; color: #64748b; }
+
+.todo-list { list-style: none; margin: 0; padding: 0; }
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 4px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.todo-item input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; }
+
+.todo-item span { flex: 1; font-size: 16px; word-break: break-all; }
+
+/* 완료된 항목: 취소선 + 흐린 글씨 */
+.todo-item.done span { text-decoration: line-through; color: #94a3b8; }
+
+.empty { text-align: center; color: #94a3b8; padding: 24px 0; }claude

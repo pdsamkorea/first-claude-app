@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cathy의 투두리스트</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>📝 오늘의 할 일</h1>
+
+    <!-- 할 일 추가 -->
+    <form id="todo-form" class="todo-form">
+      <input id="todo-input" type="text" placeholder="할 일을 입력하세요" autocomplete="off" />
+      <button type="submit">추가</button>
+    </form>
+
+    <!-- 남은 개수 -->
+    <p id="status" class="status"></p>
+
+    <!-- 할 일 목록 -->
+    <ul id="todo-list" class="todo-list"></ul>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
