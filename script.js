@@ -427,3 +427,44 @@ function renderShopGo() {
 }
 
 renderShop();
+
+// ============================================================
+// 백업 / 복원 (JSON 파일)
+// ============================================================
+document.getElementById("export-btn").addEventListener("click", () => {
+  const data = { app: "first-claude-app", version: 1, todos: todos, shop: shop };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `todo-backup-${today()}.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+});
+
+const importFile = document.getElementById("import-file");
+document.getElementById("import-btn").addEventListener("click", () => importFile.click());
+
+importFile.addEventListener("change", () => {
+  const file = importFile.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      const okTodos = Array.isArray(data.todos);
+      const okShop = data.shop && Array.isArray(data.shop.categories);
+      if (!okTodos || !okShop) throw new Error("형식이 맞지 않아요");
+      if (!confirm("현재 데이터를 백업 파일의 내용으로 덮어쓸까요?")) return;
+      save(TODO_KEY, data.todos);
+      save(SHOP_KEY, data.shop);
+      location.reload();
+    } catch (e) {
+      alert("불러올 수 없는 파일이에요. 이 앱에서 내보낸 백업 파일인지 확인해주세요.");
+    } finally {
+      importFile.value = "";
+    }
+  };
+  reader.readAsText(file);
+});

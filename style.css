@@ -213,4 +213,28 @@ button { font-family: inherit; }
 }
 .inline-form button:hover { background: #64748b; }
 
+/* ===== 백업 / 복원 ===== */
+.backup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+.backup .hint { margin: 0; }
+.backup-btns { display: flex; gap: 8px; }
+.backup-btns button {
+  padding: 6px 12px;
+  font-size: 13px;
+  color: #475569;
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.backup-btns button:hover { background: #f1f5f9; }
+
 .new-category { margin-top: 24px; padding-top: 16px; border-top: 2px dashed #e2e8f0; }

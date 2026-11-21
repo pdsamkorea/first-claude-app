@@ -34,6 +34,16 @@
       <h1>장보기</h1>
       <div id="shop-root"></div>
     </section>
+
+    <!-- ===== 백업 / 복원 ===== -->
+    <footer class="backup">
+      <span class="hint">💾 데이터 백업 (다른 기기·주소로 옮길 때 사용)</span>
+      <div class="backup-btns">
+        <button type="button" id="export-btn">내보내기</button>
+        <button type="button" id="import-btn">불러오기</button>
+        <input id="import-file" type="file" accept="application/json,.json" hidden />
+      </div>
+    </footer>
   </main>
 
   <script src="script.js"></script>
