@@ -8,19 +8,32 @@
 </head>
 <body>
   <main class="app">
-    <h1>📝 오늘의 할 일</h1>
+    <nav class="tabs">
+      <button type="button" class="tab active" data-tab="todo">📝 할 일</button>
+      <button type="button" class="tab" data-tab="shop">🛒 장보기</button>
+    </nav>
 
-    <!-- 할 일 추가 -->
-    <form id="todo-form" class="todo-form">
-      <input id="todo-input" type="text" placeholder="할 일을 입력하세요" autocomplete="off" />
-      <button type="submit">추가</button>
-    </form>
+    <!-- ===== 할 일 탭 ===== -->
+    <section id="tab-todo">
+      <h1>오늘의 할 일</h1>
 
-    <!-- 남은 개수 -->
-    <p id="status" class="status"></p>
+      <form id="todo-form" class="todo-form">
+        <input id="todo-input" type="text" placeholder="할 일을 입력하세요" autocomplete="off" />
+        <label class="due-label">마감일
+          <input id="todo-due" type="date" />
+        </label>
+        <button type="submit">추가</button>
+      </form>
 
-    <!-- 할 일 목록 -->
-    <ul id="todo-list" class="todo-list"></ul>
+      <p id="status" class="status"></p>
+      <ul id="todo-list" class="todo-list"></ul>
+    </section>
+
+    <!-- ===== 장보기 탭 ===== -->
+    <section id="tab-shop" hidden>
+      <h1>장보기</h1>
+      <div id="shop-root"></div>
+    </section>
   </main>
 
   <script src="script.js"></script>
